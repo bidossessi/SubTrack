@@ -7,12 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8270C5091F74CBC80006D247 /* AlbumMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8270C4FD1F74CBC80006D247 /* AlbumMO+CoreDataClass.swift */; };
+		8270C50A1F74CBC80006D247 /* AlbumMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8270C4FE1F74CBC80006D247 /* AlbumMO+CoreDataProperties.swift */; };
+		8270C50B1F74CBC80006D247 /* GenreMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8270C4FF1F74CBC80006D247 /* GenreMO+CoreDataClass.swift */; };
+		8270C50C1F74CBC80006D247 /* GenreMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8270C5001F74CBC80006D247 /* GenreMO+CoreDataProperties.swift */; };
+		8270C50D1F74CBC80006D247 /* PlaylistMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8270C5011F74CBC80006D247 /* PlaylistMO+CoreDataClass.swift */; };
+		8270C50E1F74CBC80006D247 /* PlaylistMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8270C5021F74CBC80006D247 /* PlaylistMO+CoreDataProperties.swift */; };
+		8270C50F1F74CBC80006D247 /* TrackMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8270C5031F74CBC80006D247 /* TrackMO+CoreDataClass.swift */; };
+		8270C5101F74CBC80006D247 /* TrackMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8270C5041F74CBC80006D247 /* TrackMO+CoreDataProperties.swift */; };
+		8270C5111F74CBC80006D247 /* ArtistMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8270C5051F74CBC80006D247 /* ArtistMO+CoreDataClass.swift */; };
+		8270C5121F74CBC80006D247 /* ArtistMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8270C5061F74CBC80006D247 /* ArtistMO+CoreDataProperties.swift */; };
+		8270C5131F74CBC80006D247 /* ArtistIndexMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8270C5071F74CBC80006D247 /* ArtistIndexMO+CoreDataClass.swift */; };
+		8270C5141F74CBC80006D247 /* ArtistIndexMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8270C5081F74CBC80006D247 /* ArtistIndexMO+CoreDataProperties.swift */; };
+		8270C5171F74CDD50006D247 /* Serialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8270C5161F74CDD50006D247 /* Serialization.swift */; };
 		82AED6701F74A33000BCC525 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AED66F1F74A33000BCC525 /* AppDelegate.swift */; };
 		82AED6731F74A33000BCC525 /* SubTrack.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 82AED6711F74A33000BCC525 /* SubTrack.xcdatamodeld */; };
 		82AED6751F74A33000BCC525 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82AED6741F74A33000BCC525 /* Assets.xcassets */; };
 		82AED6781F74A33000BCC525 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82AED6761F74A33000BCC525 /* MainMenu.xib */; };
 		82AED6841F74A33000BCC525 /* SubTrackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AED6831F74A33000BCC525 /* SubTrackTests.swift */; };
 		82AED68F1F74A33000BCC525 /* SubTrackUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AED68E1F74A33000BCC525 /* SubTrackUITests.swift */; };
+		82AED6C21F74BF9500BCC525 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82AED6C11F74BF9500BCC525 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +47,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8270C4FD1F74CBC80006D247 /* AlbumMO+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlbumMO+CoreDataClass.swift"; sourceTree = "<group>"; };
+		8270C4FE1F74CBC80006D247 /* AlbumMO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlbumMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		8270C4FF1F74CBC80006D247 /* GenreMO+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GenreMO+CoreDataClass.swift"; sourceTree = "<group>"; };
+		8270C5001F74CBC80006D247 /* GenreMO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GenreMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		8270C5011F74CBC80006D247 /* PlaylistMO+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlaylistMO+CoreDataClass.swift"; sourceTree = "<group>"; };
+		8270C5021F74CBC80006D247 /* PlaylistMO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlaylistMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		8270C5031F74CBC80006D247 /* TrackMO+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TrackMO+CoreDataClass.swift"; sourceTree = "<group>"; };
+		8270C5041F74CBC80006D247 /* TrackMO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TrackMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		8270C5051F74CBC80006D247 /* ArtistMO+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArtistMO+CoreDataClass.swift"; sourceTree = "<group>"; };
+		8270C5061F74CBC80006D247 /* ArtistMO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArtistMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		8270C5071F74CBC80006D247 /* ArtistIndexMO+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArtistIndexMO+CoreDataClass.swift"; sourceTree = "<group>"; };
+		8270C5081F74CBC80006D247 /* ArtistIndexMO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ArtistIndexMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		8270C5161F74CDD50006D247 /* Serialization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Serialization.swift; sourceTree = "<group>"; };
 		82AED66C1F74A33000BCC525 /* SubTrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SubTrack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		82AED66F1F74A33000BCC525 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		82AED6721F74A33000BCC525 /* SubTrack.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SubTrack.xcdatamodel; sourceTree = "<group>"; };
@@ -46,6 +73,7 @@
 		82AED68A1F74A33000BCC525 /* SubTrackUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SubTrackUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		82AED68E1F74A33000BCC525 /* SubTrackUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubTrackUITests.swift; sourceTree = "<group>"; };
 		82AED6901F74A33000BCC525 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		82AED6C11F74BF9500BCC525 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = /Users/stanislas/Documents/Projects/ColourCog/SubTrack/SubTrack/Constants.swift; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +101,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8270C5151F74CD8B0006D247 /* Exceptions */ = {
+			isa = PBXGroup;
+			children = (
+				8270C5161F74CDD50006D247 /* Serialization.swift */,
+			);
+			path = Exceptions;
+			sourceTree = "<group>";
+		};
 		82AED6631F74A33000BCC525 = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +132,9 @@
 		82AED66E1F74A33000BCC525 /* SubTrack */ = {
 			isa = PBXGroup;
 			children = (
+				8270C5151F74CD8B0006D247 /* Exceptions */,
+				82AED6C11F74BF9500BCC525 /* Constants.swift */,
+				82AED69C1F74B2F900BCC525 /* Models */,
 				82AED66F1F74A33000BCC525 /* AppDelegate.swift */,
 				82AED6741F74A33000BCC525 /* Assets.xcassets */,
 				82AED6761F74A33000BCC525 /* MainMenu.xib */,
@@ -122,6 +161,25 @@
 				82AED6901F74A33000BCC525 /* Info.plist */,
 			);
 			path = SubTrackUITests;
+			sourceTree = "<group>";
+		};
+		82AED69C1F74B2F900BCC525 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8270C4FD1F74CBC80006D247 /* AlbumMO+CoreDataClass.swift */,
+				8270C4FE1F74CBC80006D247 /* AlbumMO+CoreDataProperties.swift */,
+				8270C4FF1F74CBC80006D247 /* GenreMO+CoreDataClass.swift */,
+				8270C5001F74CBC80006D247 /* GenreMO+CoreDataProperties.swift */,
+				8270C5011F74CBC80006D247 /* PlaylistMO+CoreDataClass.swift */,
+				8270C5021F74CBC80006D247 /* PlaylistMO+CoreDataProperties.swift */,
+				8270C5031F74CBC80006D247 /* TrackMO+CoreDataClass.swift */,
+				8270C5041F74CBC80006D247 /* TrackMO+CoreDataProperties.swift */,
+				8270C5051F74CBC80006D247 /* ArtistMO+CoreDataClass.swift */,
+				8270C5061F74CBC80006D247 /* ArtistMO+CoreDataProperties.swift */,
+				8270C5071F74CBC80006D247 /* ArtistIndexMO+CoreDataClass.swift */,
+				8270C5081F74CBC80006D247 /* ArtistIndexMO+CoreDataProperties.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,7 +316,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				82AED6731F74A33000BCC525 /* SubTrack.xcdatamodeld in Sources */,
+				8270C50F1F74CBC80006D247 /* TrackMO+CoreDataClass.swift in Sources */,
+				8270C50A1F74CBC80006D247 /* AlbumMO+CoreDataProperties.swift in Sources */,
+				82AED6C21F74BF9500BCC525 /* Constants.swift in Sources */,
+				8270C5141F74CBC80006D247 /* ArtistIndexMO+CoreDataProperties.swift in Sources */,
+				8270C50D1F74CBC80006D247 /* PlaylistMO+CoreDataClass.swift in Sources */,
+				8270C50E1F74CBC80006D247 /* PlaylistMO+CoreDataProperties.swift in Sources */,
+				8270C5111F74CBC80006D247 /* ArtistMO+CoreDataClass.swift in Sources */,
+				8270C5131F74CBC80006D247 /* ArtistIndexMO+CoreDataClass.swift in Sources */,
+				8270C50B1F74CBC80006D247 /* GenreMO+CoreDataClass.swift in Sources */,
+				8270C5121F74CBC80006D247 /* ArtistMO+CoreDataProperties.swift in Sources */,
 				82AED6701F74A33000BCC525 /* AppDelegate.swift in Sources */,
+				8270C5171F74CDD50006D247 /* Serialization.swift in Sources */,
+				8270C5101F74CBC80006D247 /* TrackMO+CoreDataProperties.swift in Sources */,
+				8270C50C1F74CBC80006D247 /* GenreMO+CoreDataProperties.swift in Sources */,
+				8270C5091F74CBC80006D247 /* AlbumMO+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,6 +490,7 @@
 				CODE_SIGN_ENTITLEMENTS = SubTrack/SubTrack.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 9VBBXWY954;
 				INFOPLIST_FILE = SubTrack/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.colourcog.SubTrack;
@@ -433,6 +506,7 @@
 				CODE_SIGN_ENTITLEMENTS = SubTrack/SubTrack.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 9VBBXWY954;
 				INFOPLIST_FILE = SubTrack/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.colourcog.SubTrack;
