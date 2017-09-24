@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		820096BD1F75EFA000DA7682 /* JSONRequestParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820096BC1F75EFA000DA7682 /* JSONRequestParser.swift */; };
+		820096CF1F75FAFD00DA7682 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820096C91F75FAFC00DA7682 /* Extensions.swift */; };
+		820096D01F75FAFD00DA7682 /* HTTPMaestro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820096CA1F75FAFC00DA7682 /* HTTPMaestro.swift */; };
+		820096D11F75FAFD00DA7682 /* URLMaestro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820096CB1F75FAFC00DA7682 /* URLMaestro.swift */; };
+		820096D31F75FAFD00DA7682 /* DownloadMaestro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820096CD1F75FAFC00DA7682 /* DownloadMaestro.swift */; };
+		820096D41F75FAFD00DA7682 /* SubSonicMaestro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820096CE1F75FAFD00DA7682 /* SubSonicMaestro.swift */; };
+		820096D81F76048900DA7682 /* XMLMaestro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820096D71F76048900DA7682 /* XMLMaestro.swift */; };
+		820096DC1F77076B00DA7682 /* ParserMaestro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820096DB1F77076B00DA7682 /* ParserMaestro.swift */; };
+		820096DE1F770F0800DA7682 /* XMLRequestParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820096DD1F770F0800DA7682 /* XMLRequestParser.swift */; };
 		8270C5091F74CBC80006D247 /* AlbumMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8270C4FD1F74CBC80006D247 /* AlbumMO+CoreDataClass.swift */; };
 		8270C50A1F74CBC80006D247 /* AlbumMO+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8270C4FE1F74CBC80006D247 /* AlbumMO+CoreDataProperties.swift */; };
 		8270C50B1F74CBC80006D247 /* GenreMO+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8270C4FF1F74CBC80006D247 /* GenreMO+CoreDataClass.swift */; };
@@ -47,6 +56,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		820096BC1F75EFA000DA7682 /* JSONRequestParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONRequestParser.swift; sourceTree = "<group>"; };
+		820096C91F75FAFC00DA7682 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		820096CA1F75FAFC00DA7682 /* HTTPMaestro.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPMaestro.swift; sourceTree = "<group>"; };
+		820096CB1F75FAFC00DA7682 /* URLMaestro.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLMaestro.swift; sourceTree = "<group>"; };
+		820096CD1F75FAFC00DA7682 /* DownloadMaestro.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadMaestro.swift; sourceTree = "<group>"; };
+		820096CE1F75FAFD00DA7682 /* SubSonicMaestro.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubSonicMaestro.swift; sourceTree = "<group>"; };
+		820096D71F76048900DA7682 /* XMLMaestro.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMLMaestro.swift; sourceTree = "<group>"; };
+		820096DB1F77076B00DA7682 /* ParserMaestro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserMaestro.swift; sourceTree = "<group>"; };
+		820096DD1F770F0800DA7682 /* XMLRequestParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMLRequestParser.swift; sourceTree = "<group>"; };
 		8270C4FD1F74CBC80006D247 /* AlbumMO+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlbumMO+CoreDataClass.swift"; sourceTree = "<group>"; };
 		8270C4FE1F74CBC80006D247 /* AlbumMO+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AlbumMO+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		8270C4FF1F74CBC80006D247 /* GenreMO+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GenreMO+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -101,6 +119,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		820096C21F75F71000DA7682 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				820096BC1F75EFA000DA7682 /* JSONRequestParser.swift */,
+				820096DD1F770F0800DA7682 /* XMLRequestParser.swift */,
+				820096D71F76048900DA7682 /* XMLMaestro.swift */,
+				820096DB1F77076B00DA7682 /* ParserMaestro.swift */,
+				820096CD1F75FAFC00DA7682 /* DownloadMaestro.swift */,
+				820096C91F75FAFC00DA7682 /* Extensions.swift */,
+				820096CA1F75FAFC00DA7682 /* HTTPMaestro.swift */,
+				820096CE1F75FAFD00DA7682 /* SubSonicMaestro.swift */,
+				820096CB1F75FAFC00DA7682 /* URLMaestro.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 		8270C5151F74CD8B0006D247 /* Exceptions */ = {
 			isa = PBXGroup;
 			children = (
@@ -132,6 +166,7 @@
 		82AED66E1F74A33000BCC525 /* SubTrack */ = {
 			isa = PBXGroup;
 			children = (
+				820096C21F75F71000DA7682 /* API */,
 				8270C5151F74CD8B0006D247 /* Exceptions */,
 				82AED6C11F74BF9500BCC525 /* Constants.swift */,
 				82AED69C1F74B2F900BCC525 /* Models */,
@@ -316,14 +351,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				82AED6731F74A33000BCC525 /* SubTrack.xcdatamodeld in Sources */,
+				820096D41F75FAFD00DA7682 /* SubSonicMaestro.swift in Sources */,
+				820096CF1F75FAFD00DA7682 /* Extensions.swift in Sources */,
 				8270C50F1F74CBC80006D247 /* TrackMO+CoreDataClass.swift in Sources */,
+				820096D31F75FAFD00DA7682 /* DownloadMaestro.swift in Sources */,
+				820096D01F75FAFD00DA7682 /* HTTPMaestro.swift in Sources */,
+				820096D81F76048900DA7682 /* XMLMaestro.swift in Sources */,
 				8270C50A1F74CBC80006D247 /* AlbumMO+CoreDataProperties.swift in Sources */,
+				820096D11F75FAFD00DA7682 /* URLMaestro.swift in Sources */,
 				82AED6C21F74BF9500BCC525 /* Constants.swift in Sources */,
 				8270C5141F74CBC80006D247 /* ArtistIndexMO+CoreDataProperties.swift in Sources */,
+				820096BD1F75EFA000DA7682 /* JSONRequestParser.swift in Sources */,
 				8270C50D1F74CBC80006D247 /* PlaylistMO+CoreDataClass.swift in Sources */,
+				820096DC1F77076B00DA7682 /* ParserMaestro.swift in Sources */,
 				8270C50E1F74CBC80006D247 /* PlaylistMO+CoreDataProperties.swift in Sources */,
 				8270C5111F74CBC80006D247 /* ArtistMO+CoreDataClass.swift in Sources */,
 				8270C5131F74CBC80006D247 /* ArtistIndexMO+CoreDataClass.swift in Sources */,
+				820096DE1F770F0800DA7682 /* XMLRequestParser.swift in Sources */,
 				8270C50B1F74CBC80006D247 /* GenreMO+CoreDataClass.swift in Sources */,
 				8270C5121F74CBC80006D247 /* ArtistMO+CoreDataProperties.swift in Sources */,
 				82AED6701F74A33000BCC525 /* AppDelegate.swift in Sources */,

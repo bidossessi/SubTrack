@@ -13,15 +13,11 @@ import CoreData
 
 public class PlaylistMO: NSManagedObject {
     
-    init(json: [String: Any], context: NSManagedObjectContext) throws {
-        let entity = NSEntityDescription.entity(forEntityName: "Playlist", in: context)!
-        super.init(entity: entity, insertInto: context)
-        
-        // Initialize properties
-        self.id = json["id"] as! Int16
-        self.songCount = json["songCount"] as! Int16
-        self.duration = json["duration"] as! Int16
-        self.name = json["name"] as? String
+    func populate(fromDict data: [String: Any]) {
+        self.id = data["id"] as! Int16
+        self.songCount = data["songCount"] as! Int16
+        self.duration = data["duration"] as! Int16
+        self.name = data["name"] as? String
     }
 
 }

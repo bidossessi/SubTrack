@@ -13,12 +13,8 @@ import CoreData
 
 public class ArtistIndexMO: NSManagedObject {
 
-    init(json: [String: Any], context: NSManagedObjectContext) throws {
-        let entity = NSEntityDescription.entity(forEntityName: "Genre", in: context)!
-        super.init(entity: entity, insertInto: context)
-        
-        // Initialize properties
-        self.name = json["value"] as? String
+    func populate(fromDict data: [String: Any]) {
+        self.name = data["name"] as? String
     }
 
 }
