@@ -10,7 +10,7 @@
 //
 //class XMLRequestParser: ParserMaestro {
 //    
-//    func queryMaestro(_ api: HTTPMaestro, requestData data: Data) {
+//    func parse(requestData data: Data) {
 //        if self.container == nil {
 //            fatalError("No persistent container defined")
 //        }

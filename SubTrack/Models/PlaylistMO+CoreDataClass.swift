@@ -13,11 +13,23 @@ import CoreData
 
 public class PlaylistMO: NSManagedObject {
     
-    func populate(fromDict data: [String: Any]) {
-        self.id = data["id"] as! Int16
-        self.songCount = data["songCount"] as! Int16
-        self.duration = data["duration"] as! Int16
-        self.name = data["name"] as? String
+    class func populate(fromDict data: [String: Any], context: NSManagedObjectContext) -> PlaylistMO {
+        let mo = PlaylistMO(context: context)
+        mo.id = data["id"] as! Int16
+        mo.songCount = data["songCount"] as! Int16
+        mo.duration = data["duration"] as! Int16
+        mo.name = data["name"] as? String
+        if let entries = data[Constants.SubSonicAPI.Results.Entry] as? [[String: Any]] {
+            let filteredEntries = entries.filter { !($0["isVideo"] as! Bool) }
+            let trackObjects = TrackMO.populate(fromArray: filteredEntries, context: context)
+            mo.addToTracks(trackObjects)
+        }
+        return mo
+    }
+    
+    class func populate(fromArray array: [[String: Any]], context: NSManagedObjectContext) -> NSSet {
+        let datas = array.map { PlaylistMO.populate(fromDict: $0, context: context) }
+        return NSSet(array: datas)
     }
 
 }

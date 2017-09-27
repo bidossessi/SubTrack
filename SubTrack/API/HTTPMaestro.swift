@@ -12,21 +12,20 @@ import Cocoa
 
 protocol HTTPMaestro: class, URLSessionDelegate {
     static var shared: HTTPMaestro { get }
-    var jsonParserDelegate: ParserMaestro { get }
-//    var xmlParserDelegate: ParserMaestro { get }
+    var jsonParser: ParserMaestro { get }
+//    var xmlParser: ParserMaestro { get }
     var taskDataMap: [URLSessionTask: Data] { get set }
     
-    func subSonicMaestro(_ api: SubSonicMaestro,
+    func subSonicMaestro(_ maestro: SubSonicMaestro,
                          requestForURL url: URL,
-                         endpoint: String,
-                         container: NSPersistentContainer)
+                         endpoint: String)
 }
 
 class DataMonitor: NSObject, HTTPMaestro {
     var taskDataMap: [URLSessionTask : Data] = [:]
     var taskContainerMap: [URLSessionTask : NSPersistentContainer] = [:]
-    let jsonParserDelegate: ParserMaestro = JSONRequestParser.shared
-//    let xmlParserDelegate: ParserMaestro = XMLRequestParser.shared
+    let jsonParser: ParserMaestro = JSONRequestParser.shared
+//    let xmlParser: ParserMaestro = XMLRequestParser.shared
 
     static let shared: HTTPMaestro = DataMonitor()
 
@@ -48,12 +47,11 @@ class DataMonitor: NSObject, HTTPMaestro {
     }
 
 
-    func subSonicMaestro(_ api: SubSonicMaestro,
+    func subSonicMaestro(_ maestro: SubSonicMaestro,
                          requestForURL url: URL,
-                         endpoint: String,
-                         container: NSPersistentContainer) {
+                         endpoint: String) {
         let task = self.session.dataTask(with: url)
-        self.taskContainerMap[task] = container
+        self.taskContainerMap[task] = maestro.container
         task.resume()
     }
     
@@ -68,8 +66,9 @@ class DataMonitor: NSObject, HTTPMaestro {
             let container = self.taskContainerMap.removeValue(forKey: task)!
             // Ideally, according to config `format`, we would choose a parser.
             // But we stick with JSON for now
-            self.jsonParserDelegate.queryMaestro(self, requestData: data, container: container)
-//            self.xmlParserDelegate.queryMaestro(self, requestData: data, container: container)
+            
+            let _ = try? self.jsonParser.parse(requestData: data, container: container)
+//            self.xmlParser.parse(requestData: data, container: container)
         }
     }
 }

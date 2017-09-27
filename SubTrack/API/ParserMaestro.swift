@@ -11,15 +11,13 @@ import CoreData
 
 protocol ParserMaestro: class {
     static var shared: ParserMaestro { get }
-    func createObject(index: [String: Any], context: NSManagedObjectContext)
-    func createObject(artist: [String: Any], context: NSManagedObjectContext)
-    func createObject(album: [String: Any], context: NSManagedObjectContext)
-    func createObject(track: [String: Any], context: NSManagedObjectContext)
-    func createObject(genre: [String: Any], context: NSManagedObjectContext)
-    func createObject(playlist: [String: Any], context: NSManagedObjectContext)
     func validate(version: String) throws
     func validate(status: String) throws
-    func queryMaestro(_ api: HTTPMaestro, requestData data: Data, container: NSPersistentContainer)
+    func parse(data: Data) throws -> [String: Any]
+    func process(dataObject: [String: Any], context: NSManagedObjectContext)
+    func persist(response: [String: Any], container: NSPersistentContainer) throws
+    func parse(requestData data: Data, container: NSPersistentContainer) throws
+
 }
 
 extension ParserMaestro {
@@ -39,57 +37,28 @@ extension ParserMaestro {
         }
     }
     
-    func createObject(index: [String: Any], context: NSManagedObjectContext) {
-        let mo = ArtistIndexMO(context: context)
-        mo.populate(fromDict: index)
-        if let artists = index[Constants.SubSonicAPI.Results.Artist] as? [[String: Any]] {
-            for artist in artists {
-                // TODO: handle one2Many
-                self.createObject(artist: artist, context: context)
+    func persist(response: [String: Any], container: NSPersistentContainer) throws {
+        container.performBackgroundTask() { (context) in
+            // Do the work
+            context.automaticallyMergesChangesFromParent = true
+            context.mergePolicy = NSMergePolicy.mergeByPropertyObjectTrump
+            self.process(dataObject: response, context: context)
+            // Save changes
+            do {
+                try context.save()
+            } catch {
+                fatalError("Failure to save context: \(error)")
             }
         }
     }
-
-    func createObject(artist: [String: Any], context: NSManagedObjectContext) {
-        let mo = ArtistMO(context: context)
-        mo.populate(fromDict: artist)
-        if let albums = artist[Constants.SubSonicAPI.Results.Album] as? [[String: Any]] {
-            for album in albums {
-                self.createObject(album: album, context: context)
-            }
+    
+    func parse(requestData data: Data, container: NSPersistentContainer) throws {
+        do {
+            let response = try self.parse(data: data)
+            try self.persist(response: response, container: container)
+        } catch {
+            fatalError("Failed to parse data to store: \(error)")
         }
     }
-
-    func createObject(album: [String: Any], context: NSManagedObjectContext) {
-        let mo = AlbumMO(context: context)
-        mo.populate(fromDict: album)
-        if let tracks = album[Constants.SubSonicAPI.Results.Song] as? [[String: Any]] {
-            for track in tracks {
-                self.createObject(track: track, context: context)
-            }
-        }
-    }
-
-    func createObject(track: [String: Any], context: NSManagedObjectContext) {
-        let mo = TrackMO(context: context)
-        mo.populate(fromDict: track)
-    }
-
-    func createObject(genre: [String: Any], context: NSManagedObjectContext) {
-        let mo = GenreMO(context: context)
-        mo.populate(fromDict: genre)
-    }
-
-    func createObject(playlist: [String: Any], context: NSManagedObjectContext) {
-        let mo = PlaylistMO(context: context)
-        mo.populate(fromDict: playlist)
-        if let entries = playlist[Constants.SubSonicAPI.Results.Entry] as? [[String: Any]] {
-            for entry in entries {
-                let isVideo = entry["isVideo"] as! Bool
-                if isVideo == false {
-                    self.createObject(track: entry, context: context)
-                }
-            }
-        }
-    }
+    
 }

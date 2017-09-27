@@ -13,19 +13,42 @@ import CoreData
 
 public class AlbumMO: NSManagedObject {
     
-    func populate(fromDict data: [String: Any]) {
-        self.id = data["id"] as! Int16
-        self.parent = data["parent"] as! Int16
-        self.artistId = data["artistId"] as! Int16
-        self.songCount = data["songCount"] as! Int16
-        self.duration = data["duration"] as! Int16
-        self.year = data["year"] as! Int16
-        self.artist = data["artist"] as? String
-        self.album = data["album"] as? String
-        self.genre = data["genre"] as? String
-        self.name = data["name"] as? String
-        self.coverArt = data["coverArt"] as? String
-        self.title = data["title"] as? String
+    class func populate(fromDict data: [String: Any], context: NSManagedObjectContext) -> AlbumMO {
+        let mo = AlbumMO(context: context)
+
+        let id = data["id"] as! NSNumber
+        mo.id = id.int16Value
+        if let parent = data["parent"] as? NSNumber {
+            mo.parent = parent.int16Value
+        }
+        let artistId = data["artistId"] as! NSNumber
+        mo.artistId = artistId.int16Value
+        let songCount = data["songCount"] as! NSNumber
+        mo.songCount = songCount.int16Value
+        let duration = data["duration"] as! NSNumber
+        mo.duration = duration.int16Value
+        if let year = data["year"] as? NSNumber {
+            mo.year = year.int16Value
+        }
+        mo.artist = data["artist"] as? String
+        mo.album = data["album"] as? String
+        mo.genre = data["genre"] as? String
+        mo.name = data["name"] as? String
+        mo.coverArt = data["coverArt"] as? String
+        mo.title = data["title"] as? String
+        if let forArtist = data["forArtist"] as? ArtistMO {
+            mo.forArtist = forArtist
+        }
+        if let tracks = data[Constants.SubSonicAPI.Results.Song] as? [[String: Any]] {
+            let trackObjects = TrackMO.populate(fromArray: tracks, context: context)
+            mo.addToTracks(trackObjects)
+        }
+        return mo
+    }
+
+    class func populate(fromArray array: [[String: Any]], context: NSManagedObjectContext) -> NSSet {
+        let datas = array.map { AlbumMO.populate(fromDict: $0, context: context) }
+        return NSSet(array: datas)
     }
 
 }

@@ -2,45 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:../SubTrack/Models/PlaylistMO+CoreDataProperties.swift">
-   </FileRef>
-   <FileRef
-      location = "group:../SubTrack/Models">
-   </FileRef>
-   <FileRef
-      location = "group:../SubTrack/Models/ArtistMO+CoreDataClass.swift">
-   </FileRef>
-   <FileRef
-      location = "group:../SubTrack/Models/ArtistMO+CoreDataProperties.swift">
-   </FileRef>
-   <FileRef
-      location = "group:../SubTrack/Models/ArtistIndexMO+CoreDataClass.swift">
-   </FileRef>
-   <FileRef
-      location = "group:../SubTrack/Models/ArtistIndexMO+CoreDataProperties.swift">
-   </FileRef>
-   <FileRef
-      location = "group:../SubTrack/Models/AlbumMO+CoreDataClass.swift">
-   </FileRef>
-   <FileRef
-      location = "group:../SubTrack/Models/AlbumMO+CoreDataProperties.swift">
-   </FileRef>
-   <FileRef
-      location = "group:../SubTrack/Models/GenreMO+CoreDataClass.swift">
-   </FileRef>
-   <FileRef
-      location = "group:../SubTrack/Models/GenreMO+CoreDataProperties.swift">
-   </FileRef>
-   <FileRef
-      location = "group:../SubTrack/Models/TrackMO+CoreDataClass.swift">
-   </FileRef>
-   <FileRef
-      location = "group:../SubTrack/Models/TrackMO+CoreDataProperties.swift">
-   </FileRef>
-   <FileRef
-      location = "group:/Users/stanislas/Documents/Projects/ColourCog/SubTrack/SubTrack/Constants.swift">
-   </FileRef>
-   <FileRef
       location = "self:SubTrack.xcodeproj">
    </FileRef>
 </Workspace>

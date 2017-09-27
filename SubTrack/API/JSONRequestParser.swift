@@ -11,6 +11,7 @@ import CoreData
 
 
 class JSONRequestParser: ParserMaestro {
+    
         
     static let shared: ParserMaestro = JSONRequestParser()
 
@@ -18,9 +19,7 @@ class JSONRequestParser: ParserMaestro {
         print("JSONRequestParser started")
     }
 
-    func queryMaestro(_ api: HTTPMaestro, requestData data: Data, container: NSPersistentContainer) {
-        
-        //
+    func parse(data: Data) throws -> [String: Any] {        
         if let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
             
             guard let response = json?[Constants.SubSonicInfo.apiResponse] as? [String: Any] else {
@@ -29,57 +28,57 @@ class JSONRequestParser: ParserMaestro {
             // Check the response
             try? self.validate(status: response[Constants.SubSonicInfo.RequestStatusAttr] as! String)
             try? self.validate(version: response[Constants.SubSonicInfo.APIVersionAttr] as! String)
-            
-
-            container.performBackgroundTask() { (context) in
-                // Do the work
-                self.processData(json: response, context: context)
-                // Save changes
-                do {
-                    try context.save()
-                } catch {
-                    fatalError("Failure to save context: \(error)")
-                }
-            }
-            
+            return response
         } else {
             fatalError("JSON deserialization failed")
         }
     }
-}
-
-extension JSONRequestParser {
-    func processData(json: [String: Any], context: NSManagedObjectContext) {
+    
+    func process(dataObject: [String: Any], context: NSManagedObjectContext) {
         // query response object is on top
         // then we need to get the actual results object name.
         // results may contain several models or nested models
-        for (apiCall, data) in json {
-            let jsonArray = data as! [String: Any]
+        for (apiCall, data) in dataObject {
             switch apiCall {
             case Constants.SubSonicAPI.Results.SongsByGenre,
                  Constants.SubSonicAPI.Results.RandomSongs:
-                for item in jsonArray[Constants.SubSonicAPI.Results.Song] as! [[String: Any]]{
-                    self.createObject(track: item, context: context)
-                }
+                let dataDict = data as! [String: Any]
+                let items = dataDict[Constants.SubSonicAPI.Results.Song] as! [[String: Any]]
+                let _ = TrackMO.populate(fromArray: items, context: context)
             case Constants.SubSonicAPI.Results.Albums:
-                for item in jsonArray[Constants.SubSonicAPI.Results.Album] as! [[String: Any]] {
-                    self.createObject(album: item, context: context)
-                }
+                let dataDict = data as! [String: Any]
+                let items = dataDict[Constants.SubSonicAPI.Results.Album] as! [[String: Any]]
+                let _ = AlbumMO.populate(fromArray: items, context: context)
             case Constants.SubSonicAPI.Results.Artists:
-                for index in jsonArray["index"] as! [[String: Any]] {
-                    self.createObject(index: index, context: context)
-                }
+                let dataDict = data as! [String: Any]
+                let items = dataDict[Constants.SubSonicAPI.Results.Index] as! [[String: Any]]
+                let _ = ArtistMO.populate(fromArray: items, context: context)
             case Constants.SubSonicAPI.Results.Artist:
-                self.createObject(artist: jsonArray, context: context)
+                let dataDict = data as! [String: Any]
+                let _ = ArtistMO.populate(fromDict: dataDict, context: context)
             case Constants.SubSonicAPI.Results.Playlists:
-                for item in jsonArray[Constants.SubSonicAPI.Results.Playlist] as! [[String: Any]] {
-                    self.createObject(playlist: item, context: context)
-                }
+                let dataDict = data as! [String: Any]
+                let items = dataDict[Constants.SubSonicAPI.Results.Song] as! [[String: Any]]
+                let _ = PlaylistMO.populate(fromArray: items, context: context)
             case Constants.SubSonicAPI.Results.Playlist:
-                self.createObject(playlist: jsonArray, context: context)
+                let dataDict = data as! [String: Any]
+                let _ = PlaylistMO.populate(fromDict: dataDict, context: context)
+            // Special case for search and starred
+            case Constants.SubSonicAPI.Results.Starred,
+                 Constants.SubSonicAPI.Results.Search:
+                let foundData = data as! [String: Any]
+                for (item, _) in foundData {
+                    // we need to handle getting objects or lists
+                    switch item {
+                    default:
+                        print(item)
+                    }
+                }
+                
             default:
                 print(apiCall)
             }
         }
     }
+
 }
